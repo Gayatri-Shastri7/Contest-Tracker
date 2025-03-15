@@ -33,52 +33,9 @@
 - **Availability:** Deploy backend (Spring Boot) on **AWS/Render** and frontend (React) on **Vercel/Netlify**.  
 - **Database Choice:** PostgreSQL or MySQL for structured contest/user data.  
 
----
 
-## 3. High-Level Design (HLD)
 
-### Architecture Diagram
-
-```
-                        +--------------------+
-                        |   User (Frontend)  |
-                        +---------+----------+
-                                  |
-                                  ▼
-                        +--------------------+
-                        |   React Frontend   |
-                        | (Next.js / Vite +  |
-                        | Tailwind CSS)      |
-                        +---------+----------+
-                                  |
-                                  ▼
-                        +--------------------+
-                        |  Spring Boot API   |
-                        | (RESTful Services) |
-                        +---------+----------+
-                                  |
-      ---------------------------------------------------
-      |                  |                |            |
-      ▼                  ▼                ▼            ▼
-+-------------+    +-------------+  +-------------+  +----------------+
-| Contest API |    | User API    |  | Reminder API|  | YouTube API    |
-+-------------+    +-------------+  +-------------+  +----------------+
-      |                  |                |            |
-      ▼                  ▼                ▼            ▼
-+-------------+    +-------------+  +-------------+  +----------------+
-|  PostgreSQL |    | Redis Cache |  | Twilio API  |  | YouTube Data   |
-+-------------+    +-------------+  +-------------+  +----------------+
-      |                 
-      ▼                 
-+--------------------------------+
-|  External Contest APIs        |
-|  (Codeforces, CodeChef, LC)   |
-+--------------------------------+
-```
-
----
-
-## 4. API Endpoints
+## 3. API Endpoints
 
 | Method | Endpoint | Description |
 |--------|---------|-------------|
